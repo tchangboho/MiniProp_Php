@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>Etape 1</h1>
+<p>La creation des fichers</p>
+<p>Integration du bootstrap</p>
+<ul>
+    <li>Copie d'un footer dans bootstrap</li>
+    <li>echange /docs en  "https://getbootstrap.com/docs"</li>
+    cela permet d'utiliser la page hors connexion
+    <li>le header</li>
+    il va contenir le navbar
+    <p>Organisation en bloc fonctionnels</p>
+    <li>Activation des lien du nav bar</li>
+    <li>Integration de la datatable
+        <ol>
+            <li>c'est un plugin pour la bibliothèque Jquery : datatable</li>
+            <li>Elle va nous permettre de mieux afficher nos table isue de notre bases de données </li>
+            <li>Chargement de la bibliothèque Jquery : hosted libraries</li>
+        </ol>
+    </li>
+</ul>
+<h1>La partie BACK (supression,modification)</h1>
+<ol>
+    <li>Connection a une base de données
+        <p>
+            <?php
+    class connect extends PDO{
+        const HOST="localhost";
+        const DB ="gestioncommandes";
+        const USER ="root";
+        const PSW ="";
+
+
+        public function __construct(){
+            try {
+                //code...
+                parent::__construct("mysql:dbname=".self::DB.";host=".self::HOST,self::USER,self::PSW);
+                echo "DONE";
+            }catch(PDOException $e){
+                //throw $th;
+                echo $e->getMessage()." ".$e->getFile()." ".$e->getLine();
+            }
+        }
+    }
+    
+?>
+        </p>
+    </li>
+    <li>Affichage et select</li>
+    <li>Action Insert</li>
+    <p>On fait cela en ajoutant comme lien</p><br>
+    <p>au btn ajout un ficher php vers le quel on va rediriger le client</p>
+
+</ol>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+    $clients = true;
+    include_once("header.php");
+    include_once("connexion.php");
+    //include_once("main.php");
+?>
+<main class="flex-shrink-0">
+  <div class="container">
+    <h1 class="mt-5">Clients</h1>
+
+    // insertion de la datatable dans class_implements
+
+    <table id="datatable" class="display">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+    
+  </div>
+</main>
+
+<?php 
+    include_once("footer.php");
+?>
+
+
+
+
+code de connexion
+
+<?php
+    $clients = true;
+    include_once("header.php");
+    include_once("connexion.php")
+?>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+  <div class="container">
+    <h1 class="mt-5">Clients</h1>
+    <?php $pdo=new connect()?>
+    // insertion de la datatable dans class_implements
+
+    <table id="datatable" class="display">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+    
+  </div>
+</main>
+
+<?php 
+    include_once("footer.php");
+?>
+-----------------------------------------------------
